@@ -2,7 +2,7 @@ import { Button, Input } from 'antd';
 import React, { useState } from 'react';
 import {v4 as uuidv4} from 'uuid';
 
-export default function AddTodo({handleAdd}) {
+export default function AddTodo({onAdd}) {
     const [text, setText] = useState('');
     const handleChange = (e) => setText(e.target.value);
     const handleSubmit = (e) => {
@@ -10,7 +10,7 @@ export default function AddTodo({handleAdd}) {
         if (text.trim().length === 0) {
             return;
         }
-        handleAdd({id:uuidv4(), text ,state:'active'});
+        onAdd({id:uuidv4(), text ,status:'active'});
         setText('');
     }
     return (
